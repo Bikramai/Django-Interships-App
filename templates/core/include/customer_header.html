@@ -1,0 +1,19 @@
+{% load static %}
+
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'customer:dashboard' %}">
+        <i class="bx bxs-dashboard mr-2"></i>Dashboard
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'customer:job-list' %}">
+        <i class="fa fa-briefcase mr-2"></i>Internships
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'customer:my-review-list' %}">
+        <i class="fa fa-clipboard-check mr-2"></i>My Reviews
+    </a>
+</li>

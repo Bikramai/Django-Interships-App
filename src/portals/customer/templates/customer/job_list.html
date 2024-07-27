@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block base_title %} Recommended {% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-12">
+
+            <div class="card">
+                <div class="card-body p-0 border">
+                    {% if object_list %}
+
+                        {% include 'company/include/job_list_div.html' %}
+
+                    {% else %}
+                        <p class="text-danger mb-0 p-4">
+                            <b><i class="fa fa-exclamation-circle"></i> No internships found.</b>
+                        </p>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if object_list %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-4">
+                    <ul class="pagination">
+                        {% if object_list.has_previous %}
+                            <li>
+                            <span>
+                                <a href="{% relative_url object_list.previous_page_number 'page' request.GET.urlencode %}">
+                                    Previous
+                                </a>
+                            </span>
+                            </li>
+                        {% endif %}
+                        <li class="">
+                            <span>Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.</span>
+                        </li>
+                        {% if object_list.has_next %}
+                            <li>
+                            <span>
+                                <a href="{% relative_url object_list.next_page_number 'page' request.GET.urlencode %}">
+                                    Next
+                                </a>
+                            </span>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

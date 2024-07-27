@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block base_title %}
+    Candidates
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="row mb-2">
+        <div class="col-lg-12">
+            <a href="{% url 'company:job-list' %}">
+                <h5 class="mb-0 text-primary">
+                    <i class="mdi mdi-arrow-left mr-1"></i> {{ job.title }}
+                </h5>
+            </a>
+            <h4>Reviews preview</h4>
+            <hr>
+
+            {% if object_list %}
+
+                {% include 'company/include/review_list_div.html' %}
+
+            {% else %}
+                <p class="text-danger mb-0">
+                    <b>No reviews added yet.</b>
+                </p>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

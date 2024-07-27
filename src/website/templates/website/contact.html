@@ -1,0 +1,91 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block base_content %}
+    <section
+            class="relative table w-full py-36 bg-[url('../../assets/images/hero/bg.jpg')] bg-top bg-no-repeat bg-cover">
+        <div class="absolute inset-0 bg-emerald-900/90"></div>
+        <div class="container">
+            <div class="grid grid-cols-1 text-center mt-10">
+                <h3 class="md:text-3xl text-2xl md:leading-snug tracking-wide leading-snug font-medium text-white">
+                    Contact Us</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative lg:py-24 py-16">
+        <div class="container">
+            <div class="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
+                <div class="lg:col-span-7 md:col-span-6">
+                    <img src="{% static 'website/assets/images/svg/contact.svg' %}" alt="">
+                </div>
+
+                <div class="lg:col-span-5 md:col-span-6">
+                    <div class="lg:ms-5">
+                        <div class="bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-700 p-6">
+                            <h3 class="mb-6 text-2xl leading-normal font-semibold">Get in touch !</h3>
+
+                            <form method="post" name="myForm" id="myForm" action=".">
+                                {% csrf_token %}
+
+                                <p class="mb-0" id="error-msg"></p>
+                                <div id="simple-msg"></div>
+                                <div class="grid lg:grid-cols-12 lg:gap-6">
+                                    <div class="lg:col-span-6 mb-5">
+                                        {{ form.name.label_tag }}
+                                        {{ form.name }}
+                                    </div>
+
+                                    <div class="lg:col-span-6 mb-5">
+                                        {{ form.email.label_tag }}
+                                        {{ form.email }}
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1">
+
+                                    <div class="mb-5">
+                                        {{ form.message.label_tag }}
+                                        {{ form.message }}
+                                    </div>
+                                </div>
+                                <button type="submit" id="submit" name="send"
+                                        class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md">Send
+                                    Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container lg:mt-24 mt-16">
+            <div>
+
+
+                <div class="text-center px-6" style="text-align: center;">
+                    <div class="relative text-transparent">
+                        <div class="w-14 h-14 bg-emerald-600/5 text-emerald-600 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800">
+                            <i class="uil uil-envelope"></i>
+                        </div>
+                    </div>
+
+                    <div class="content mt-7">
+                        <h5 class="title h5 text-lg font-semibold">Email</h5>
+                        <p class="text-slate-400 mt-3">Drop us an email for inquiries or any information you need. We're here to help!</p>
+
+                        <div class="mt-5">
+                            <a href="mailto:{{ app.contact_email1 }}"
+                               class="btn btn-link text-emerald-600 hover:text-emerald-600 after:bg-emerald-600 transition duration-500">{{ app.contact_email1 }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+

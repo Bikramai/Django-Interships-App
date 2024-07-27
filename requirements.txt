@@ -1,0 +1,24 @@
+python-dateutil
+python-decouple
+pillow
+six
+
+django==4.2.10
+django-environ
+django-filter
+django-allauth==0.55.0
+django-allauth
+django-crispy-forms
+django-notifications-hq
+django-jazzmin
+django-phonenumber-field[phonenumbers]
+
+crispy-bootstrap5
+
+django-browser-reload
+markdown
+django-filter
+django-resized
+
+
+# python -m pip install --upgrade Pillow >>> install pillow with this
